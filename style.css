@@ -1,0 +1,41 @@
+:root{
+  --bg:#212121; --panel:#2a2a2a; --panel2:#303030; --text:#ececec; --muted:#a7a7a7;
+  --border:#444; --accent:#10a37f; --accent2:#19c37d; --shadow:0 12px 40px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;display:flex;min-height:100vh}
+.sidebar{width:260px;background:#171717;border-right:1px solid #2e2e2e;padding:16px;display:flex;flex-direction:column;position:fixed;inset:0 auto 0 0}
+.brand{display:flex;gap:10px;align-items:center;padding:8px 6px 18px}
+.logo{width:36px;height:36px;border-radius:10px;background:var(--accent);display:grid;place-items:center;color:#fff;font-size:20px}
+.brand strong,.brand span{display:block}.brand span{color:var(--muted);font-size:12px;margin-top:2px}
+.newchat,.navbtn{width:100%;border:1px solid #3b3b3b;background:transparent;color:var(--text);border-radius:8px;padding:11px 12px;text-align:left;cursor:pointer;margin-bottom:8px;font-size:14px}
+.newchat:hover,.navbtn:hover,.navbtn.active{background:#2a2a2a}
+.newchat{border-color:#555;margin-bottom:18px}
+.sidebar-bottom{margin-top:auto;display:flex;flex-direction:column;gap:5px;color:#777;padding:8px}
+.main{margin-left:260px;width:calc(100% - 260px);min-height:100vh}
+.topbar{height:58px;border-bottom:1px solid #303030;display:flex;justify-content:flex-end;align-items:center;padding:0 22px}
+.mobile-brand{display:none;margin-right:auto;font-weight:700}.iconbtn{background:#2b2b2b;color:#ddd;border:1px solid #444;border-radius:8px;padding:8px 12px;cursor:pointer}
+.hero{max-width:900px;margin:0 auto;padding:70px 24px 28px;text-align:center}
+.hero-badge{display:inline-block;font-size:11px;letter-spacing:1.5px;color:#8ce8c9;border:1px solid #285e50;border-radius:999px;padding:6px 10px;margin-bottom:15px}
+.hero h1{font-size:46px;margin:0 0 12px;letter-spacing:-1.5px}.hero p{color:var(--muted);font-size:16px}
+.panel{max-width:900px;margin:18px auto 30px;padding:24px;background:var(--panel);border:1px solid #3b3b3b;border-radius:16px;box-shadow:var(--shadow);display:none}
+.active-panel{display:block}
+.panel-title h2{margin:0 0 5px}.panel-title p{margin:0 0 20px;color:var(--muted)}
+textarea{width:100%;min-height:150px;background:#1f1f1f;border:1px solid #484848;border-radius:12px;padding:15px;color:var(--text);font:inherit;resize:vertical;outline:none}
+textarea:focus{border-color:#6c6c6c}
+.row{display:flex;gap:10px;margin-top:12px}.row select{flex:1}
+select{background:#1f1f1f;color:#ddd;border:1px solid #484848;border-radius:10px;padding:12px}
+button.primary,button.secondary{border:0;border-radius:10px;padding:12px 18px;cursor:pointer;font-weight:700}
+.primary{background:var(--accent);color:#fff}.primary:hover{background:var(--accent2)}.secondary{background:#3a3a3a;color:#eee;margin-top:12px}
+.result{margin-top:18px}.result img{max-width:100%;border-radius:12px;display:block;border:1px solid #444}.result pre{white-space:pre-wrap;background:#1c1c1c;padding:16px;border-radius:12px;line-height:1.6}
+.dropzone{min-height:160px;border:1px dashed #666;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;margin-bottom:15px;background:#202020}
+.dropzone input{display:none}.dropzone span{font-size:18px;font-weight:700}.dropzone small{color:#888}
+.notice{background:#332d1e;border:1px solid #6b5b31;color:#e9dcae;padding:14px;border-radius:12px;line-height:1.5}
+.loading{padding:14px;color:#9debd2}.error{color:#ff9b9b;background:#351f1f;border:1px solid #643535;padding:12px;border-radius:10px}
+footer{max-width:900px;margin:40px auto;padding:20px 24px;color:#666;text-align:center;font-size:12px}
+@media(max-width:800px){
+  .sidebar{position:static;width:100%;height:auto;border-right:0;border-bottom:1px solid #303030}
+  body{display:block}.sidebar nav{display:grid;grid-template-columns:1fr 1fr;gap:6px}.navbtn{margin:0}
+  .sidebar-bottom{display:none}.newchat{margin-bottom:10px}.main{margin-left:0;width:100%}.topbar{display:none}
+  .mobile-brand{display:block}.hero{padding-top:35px}.hero h1{font-size:34px}.panel{margin:14px 12px;padding:17px}.row{flex-direction:column}
+}
