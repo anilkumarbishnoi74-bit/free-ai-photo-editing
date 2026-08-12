@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Photo Editing</title>
+  <meta name="description" content="AI photo generation, prompt creation and photo editing.">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">✦</div>
+      <div>
+        <strong>Free AI Photo</strong>
+        <span>Editing</span>
+      </div>
+    </div>
+    <button class="newchat" onclick="resetAll()">＋ New Project</button>
+    <nav>
+      <button class="navbtn active" data-target="generatePanel">🖼️ AI Photo Generate</button>
+      <button class="navbtn" data-target="promptPanel">✨ Prompt Generator</button>
+      <button class="navbtn" data-target="editPanel">🪄 Photo Edit</button>
+      <button class="navbtn" data-target="upscalePanel">🔍 4K Enhance</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <small>Free AI Photo Editing</small>
+      <small>AI-powered workspace</small>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="mobile-brand">✦ Free AI Photo Editing</div>
+      <button id="themeBtn" class="iconbtn" title="Theme">☾</button>
+    </header>
+
+    <section class="hero">
+      <div class="hero-badge">AI PHOTO STUDIO</div>
+      <h1>Create. Edit. Enhance.</h1>
+      <p>Generate photos, create professional prompts, edit images and prepare high-resolution outputs.</p>
+    </section>
+
+    <section id="generatePanel" class="panel active-panel">
+      <div class="panel-title">
+        <div><h2>AI Photo Generate</h2><p>अपना idea लिखें और AI image बनाएं।</p></div>
+      </div>
+      <textarea id="generatePrompt" placeholder="Example: A cinematic portrait of a young Indian man in a premium podcast studio, realistic DSLR photography..."></textarea>
+      <div class="row">
+        <select id="imageSize">
+          <option value="1024x1024">Square — 1024×1024</option>
+          <option value="1536x1024">Landscape — 1536×1024</option>
+          <option value="1024x1536">Portrait — 1024×1536</option>
+        </select>
+        <button class="primary" onclick="generateImage()">Generate Photo ✨</button>
+      </div>
+      <div id="generateResult" class="result"></div>
+    </section>
+
+    <section id="promptPanel" class="panel">
+      <div class="panel-title"><div><h2>Prompt Generator</h2><p>Simple idea को professional AI prompt में बदलें।</p></div></div>
+      <textarea id="idea" placeholder="Example: एक लड़के की professional podcast photo बनानी है..."></textarea>
+      <button class="primary" onclick="makePrompt()">Create Prompt ✨</button>
+      <div id="promptResult" class="result"></div>
+    </section>
+
+    <section id="editPanel" class="panel">
+      <div class="panel-title"><div><h2>Photo Edit</h2><p>Photo upload करके natural AI edit instructions दें।</p></div></div>
+      <label class="dropzone" for="photoFile">
+        <input id="photoFile" type="file" accept="image/*">
+        <span>📷 Photo चुनें</span>
+        <small>JPG / PNG • अधिकतम 20MB</small>
+      </label>
+      <textarea id="editPrompt" placeholder="Example: Background remove करके premium studio background लगाओ, face बिल्कुल same रखो..."></textarea>
+      <button class="primary" onclick="editPhoto()">Edit Photo 🪄</button>
+      <div id="editResult" class="result"></div>
+    </section>
+
+    <section id="upscalePanel" class="panel">
+      <div class="panel-title"><div><h2>4K Enhance</h2><p>High-resolution workflow के लिए photo तैयार करें।</p></div></div>
+      <div class="notice">
+        <strong>Important:</strong> केवल image को 3840×2160 में resize करना असली AI 4K enhancement नहीं है।
+        असली नए details के लिए dedicated super-resolution AI model/API जोड़ना होगा।
+      </div>
+      <label class="dropzone" for="upscaleFile">
+        <input id="upscaleFile" type="file" accept="image/*">
+        <span>🔍 Photo चुनें</span>
+        <small>यह UI अभी 4K AI provider जोड़ने के लिए तैयार है।</small>
+      </label>
+      <button class="secondary" onclick="show4kInfo()">4K Setup Info</button>
+      <div id="upscaleResult" class="result"></div>
+    </section>
+
+    <footer>Free AI Photo Editing • Keep your API key on the server, never in browser JavaScript.</footer>
+  </main>
+
+<script src="/app.js"></script>
+</body>
+</html>
